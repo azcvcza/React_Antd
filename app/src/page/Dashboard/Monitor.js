@@ -1,5 +1,3 @@
 export default (props) => {
-	return (
-		<div > Monitors < /div>
-		)
-}
+    return ( < h1 > Monitors < /h1>)
+    }

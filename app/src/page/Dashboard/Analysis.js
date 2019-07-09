@@ -1,5 +1,5 @@
 export default (props)=>{
 	return (
-		<div>Analysis</div>
+		<h1>Analysis</h1>
 	)
 }

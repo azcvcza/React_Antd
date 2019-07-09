@@ -1,5 +1,5 @@
-export default (props)=>{
-	return (
-		<div>Workplace</div>
-	)
+export default (props) => {
+    return ( <
+        h1 > Workplace < /h1>
+    )
 }
