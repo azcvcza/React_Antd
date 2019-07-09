@@ -1,14 +1,30 @@
-import ShoppingList from './components/ShoppingList';
-import Picture from './components/Picture'
-import Square from './components/Square'
+import { Card } from 'antd';
 export default () => {
+    const style = {
+        width: '400px',
+        margin: '30px',
+        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)',
+        border: '1px solid #e8e8e8',
+    };
 
-    const picture = { src: 'https://cdn.nlark.com/yuque/0/2018/jpeg/84141/1536207007004-59352a41-4ad8-409b-a416-a4f324eb6d0b.jpeg' }
     return ( <
-        div >
+        div > < h2 > Using Antd < /h2> <
+        Card style = { style }
+        actions = {
+            [ < a > 操作一 < /a>, <a>操作二</a > ]
+        } >
         <
-        h2 > Hello World < /h2> <
-        ShoppingList name = "zhang3" > < /ShoppingList> <
-        Picture src = { picture.src } > < /Picture><Square></Square > < /
+        Card.Meta avatar = { < img
+            alt = ""
+            style = {
+                { width: '64px', height: '64px', borderRadius: '32px' } }
+            src = "https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png" /
+            >
+        }
+        title = "Alipay"
+        description = "在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的组件会被抽离成一套标准规范。" /
+        >
+        <
+        /Card> < /
         div > );
 }
