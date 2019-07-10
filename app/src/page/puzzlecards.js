@@ -1,59 +1,52 @@
-import React, {Component} from 'react';
-import {Card,Button} from 'antd';
+import React, { Component } from 'react';
+import { Card ,Button } from 'antd';
+import { connect } from 'dva';
 
-export default class PuzzleCardPage extends Component {
-	constructor(props) {
-		super(props);
-		this.counter = 100;
-		this.state = {
+const namespace = 'puzzlecards';
 
-			cardList: [
-				{
-					id: 1,
-					setup: 'did you hear the people sing',
-					punchline: 'laurm ispum laurm ispum'
-				},
-				{
-					id: 2,
-					setup: 'did you hear the empire sing',
-					punchline: 'laurm ispum laurm ispum'
-				}
-			]
-		}
-	}
-	addNewCards = () => {
-		this.setState(prevState => {
-			const prevCardList = prevState.cardList;
-			this.counter += 1;
-			const card = {
-				id: this.counter,
-				setup: 'Lorem ipsum dolor sit amet',
-				punchline: 'sed do eiusmod tempor'
-			};
-			return {
-				cardList: prevCardList.concat(card),
-			}
-		})
-	}
-	render() {
-		return (
-			<div>
-				{
-					this.state.cardList.map(card => {
-						return (
-							<Card key={card.id}>
-								<div>Q: {card.setup}</div>
-								<div>
-									<strong>A: {card.punchline}</strong>
-								</div>
-							</Card>
-						);
-					})
-				}
-				<div>
-					<Button onClick={this.addNewCards}>add card</Button>
-				</div>
-			</div>
-		);
-	}
+const mapStateToProps = (state) => {
+  const cardList = state[namespace].data;
+  return {
+    cardList,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onClickAdd: (newCard) => {
+      const action = {
+        type: `${namespace}/addNewCard`,
+        payload: newCard,
+      };
+      dispatch(action);
+    },
+  };
+};
+
+@connect(mapStateToProps, mapDispatchToProps)
+export default class PuzzleCardsPage extends Component {
+  render() {
+    return (
+      <div>
+        {
+          this.props.cardList.map(card => {
+            return (
+              <Card key={card.id}>
+                <div>Q: {card.setup}</div>
+                <div>
+                  <strong>A: {card.punchline}</strong>
+                </div>
+              </Card>
+            );
+          })
+        }
+        <div>
+          <Button onClick={() => this.props.onClickAdd({
+            setup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+            punchline: 'here we use dva',
+          })}> 添加卡片 </Button>
+        </div>
+      </div>
+    );
+  }
 }
