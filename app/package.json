@@ -4,15 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "umi dev",
-    "build": "umi build"
+    "build": "umi build",
+    "test": "umi test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@antv/g2": "^3.5.8-beta.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "react-redux": "^7.1.0",
     "umi": "^2.8.10",
     "umi-plugin-react": "^1.9.9"
