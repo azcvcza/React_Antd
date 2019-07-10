@@ -3,10 +3,13 @@ import {Layout, Menu, Icon} from 'antd';
 import Link from 'umi/link';
 const {Header, Footer, Sider, Content} = Layout;
 const SubMenu = Menu.SubMenu;
+
+
 class BasicLayout extends Component {
 	render() {
 		return (
-			<Layout>
+			
+				<Layout>
 				<Sider width={256} style={{minHeight: '100vh'}}>
 					<div style={{height: '32px', background: 'rgba(255,255,255,.2)', margin: '16px'}} />
 					<Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>

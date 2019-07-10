@@ -1,9 +1,7 @@
 import * as cardsService from '../service/cards';
 
 export default {
-
     namespace: 'cards',
-
     state: {
         cardsList: [],
         statistic: {},
