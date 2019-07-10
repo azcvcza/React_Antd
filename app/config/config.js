@@ -15,6 +15,10 @@ export default {
                 component: './Helloworld',
             },
             {
+                path: '/list',
+                component: '../page/list/index'
+            },
+            {
                 path: '/puzzlecards',
                 component: './puzzlecards'
             },
